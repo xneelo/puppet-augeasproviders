@@ -3,7 +3,7 @@
 # Defines all the variables used in the module.
 #
 class augeasproviders::params {
-
+  # lint:ignore:top_scope_facts
   $apache_directive_hash = $::augeasproviders_apache_directive_hash ? {
     undef   => false,
     default => $::augeasproviders_apache_directive_hash,
@@ -93,7 +93,7 @@ class augeasproviders::params {
     'apache_directive'      => $defaults,
     'apache_setenv'         => $defaults,
     'host'                  => $defaults,
-    'kernel_parameter'      => merge($defaults, {'provider' => undef}),
+    'kernel_parameter'      => merge($defaults, { 'provider' => undef }),
     'mailalias'             => $defaults,
     'mounttab'              => $defaults,
     'nrpe_command'          => $defaults,
@@ -106,5 +106,5 @@ class augeasproviders::params {
     'sysctl'                => $defaults,
     'syslog'                => $defaults,
   }
-
+  # lint:endignore
 }

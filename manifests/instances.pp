@@ -20,7 +20,6 @@ class augeasproviders::instances (
   $syslog_hash                = $augeasproviders::params::syslog_hash,
   $resource_defaults          = $augeasproviders::params::resource_defaults
 ) inherits augeasproviders::params {
-
   validate_hash($resource_defaults)
 
   if $apache_directive_hash and !empty($apache_directive_hash) {
@@ -102,5 +101,4 @@ class augeasproviders::instances (
     validate_hash($syslog_hash)
     create_resources(syslog, $syslog_hash, $resource_defaults['syslog'])
   }
-
 }
